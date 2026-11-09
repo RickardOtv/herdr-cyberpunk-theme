@@ -1,0 +1,165 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Herdr Cyberpunk mockup</title>
+<style>
+  @font-face { font-family: Rajdhani; font-weight: 500; src: url(../mods/cp-status/fonts/Rajdhani-Medium.ttf); }
+  @font-face { font-family: Rajdhani; font-weight: 600; src: url(../mods/cp-status/fonts/Rajdhani-SemiBold.ttf); }
+  @font-face { font-family: Rajdhani; font-weight: 700; src: url(../mods/cp-status/fonts/Rajdhani-Bold.ttf); }
+  @font-face { font-family: STM; src: url(../mods/cp-status/fonts/ShareTechMono-Regular.ttf); }
+  :root { --y:#fcee0a; --r:#ff003c; --c:#00f0ff; --chrome:#0c090d; --border:#5c1626; --muted:#ff5a6e; --dim:#8c3a48; --fg:#d9f3f5; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { width: 1600px; height: 1000px; overflow: hidden; background: #000; font-family: Rajdhani; color: var(--fg); }
+  .win { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column;
+    background: url(../backgrounds/night-city-2.png) center/cover; }
+  .top { display: flex; flex: 1; min-height: 0; }
+  /* Sidebar */
+  .side { width: 290px; background: #0c090de6; border-right: 1px solid var(--r); display: flex; flex-direction: column; }
+  .brand { height: 46px; display: flex; align-items: center; gap: 10px; padding: 0 16px 0 84px; font-weight: 700; font-size: 15px; position: relative; }
+  .lights { position: absolute; left: 16px; display: flex; gap: 8px; }
+  .lights i { width: 12px; height: 12px; border-radius: 50%; background: #ff5f57; } .lights i:nth-child(2){background:#febc2e} .lights i:nth-child(3){background:#28c840}
+  .needs { border-bottom: 1px solid var(--border); padding-bottom: 6px; }
+  .needs h { display: flex; justify-content: space-between; padding: 8px 16px; font-weight: 700; font-size: 13px; color: var(--r); }
+  .needs h b { background: var(--y); color: #000; padding: 0 6px; font-size: 12px; }
+  .blk { display: flex; margin: 0 8px 4px; background: #3a0d14; height: 40px; }
+  .blk .bar { width: 3px; background: var(--r); }
+  .blk div { padding: 3px 10px; } .blk .t { font-weight: 700; font-size: 13px; color: #ffe7ea; } .blk .s { font-size: 11px; color: var(--muted); }
+  .sec { padding: 14px 16px 6px; font-size: 12px; color: var(--muted); font-weight: 600; }
+  .sp { display: flex; align-items: center; gap: 10px; margin: 2px 8px; padding: 0 8px; height: 32px; font-size: 14px; font-weight: 600; border-radius: 6px; }
+  .sp.on { background: #3a0d14; }
+  .sp i { width: 18px; height: 18px; border-radius: 4px; font-style: normal; font-size: 10px; font-weight: 700; display: grid; place-items: center; color: #fff; }
+  .sp em { margin-left: auto; font-style: normal; font-size: 11px; color: var(--dim); }
+  .grp { padding: 10px 16px 4px; font-size: 12px; font-weight: 600; }
+  .ag { display: flex; align-items: center; gap: 8px; margin: 1px 8px; padding: 0 8px; height: 30px; font-size: 13.5px; font-weight: 600; color: var(--muted); border-radius: 6px; }
+  .ag.on { background: #3a0d14; color: var(--fg); }
+  .ag small { color: var(--dim); font-size: 11.5px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .ag .st { margin-left: auto; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--dim); flex: none; }
+  .ag .st.w { border-color: var(--c); border-right-color: transparent; }
+  .ag .st.b { border: none; background: var(--r); }
+  .spacer { flex: 1; }
+  .foot { padding: 12px 16px; font-size: 13px; color: var(--muted); border-top: 1px solid var(--border); }
+  /* Work area */
+  .work { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+  .tabs { height: 46px; display: flex; align-items: center; gap: 4px; padding: 0 10px; background: var(--chrome); border-bottom: 1px solid var(--border); font-size: 13px; }
+  .tab { height: 29px; padding: 0 12px; display: flex; align-items: center; gap: 7px; border: 1px solid var(--chrome); color: var(--muted); font-weight: 600; }
+  .tab.on { border-color: var(--border); background: #1a0e12; color: var(--fg); }
+  .tab .d { width: 6px; height: 6px; border-radius: 50%; background: var(--r); }
+  .tabs .r { margin-left: auto; display: flex; gap: 16px; color: var(--muted); font-weight: 600; }
+  .panes { flex: 1; display: flex; gap: 8px; padding: 8px; min-height: 0; }
+  .pane { flex: 1; display: flex; flex-direction: column; background: #08080ce0; border: 1px solid var(--r); min-width: 0; }
+  .pane.focus { border: 2px solid var(--y); flex: 1.6; }
+  .ph { height: 30px; display: flex; align-items: center; gap: 8px; padding: 0 12px; border-bottom: 1px solid var(--border); font-size: 13px; font-weight: 700; }
+  .ph span { color: var(--dim); font-weight: 500; }
+  .term { flex: 1; padding: 12px 16px; font: 15px/1.55 STM, monospace; white-space: pre; overflow: hidden; }
+  .g { color: #39ff9e; } .m { color: var(--dim); } .y { color: var(--y); } .c { color: var(--c); } .rd { color: var(--r); } .pk { color: #ff5ad1; }
+  .add { background: #0b3d1e; display: block; } .del { background: #4a0710; display: block; }
+  .cur { background: var(--y); color: #000; }
+  /* Status bar */
+  .status { height: 30px; display: flex; align-items: center; background: var(--y); color: #000; font-weight: 700; font-size: 13px; position: relative; overflow: hidden; }
+  .status .cell { padding: 0 12px; display: flex; align-items: center; height: 100%; }
+  .status .sep { width: 1px; height: 12px; background: #000; opacity: .35; }
+  .status .blkd { background: var(--r); color: var(--y); }
+  .net { background: #000; color: var(--y); }
+  .beam { position: absolute; left: 820px; top: 0; width: 60px; height: 100%; background: #fff; opacity: .3; }
+  .gauge { height: 22px; display: flex; align-items: center; gap: 8px; padding: 0 8px; background: #000; border-left: 3px solid var(--c); }
+  .gauge .lab { color: var(--y); }
+  .segs { display: flex; gap: 2px; }
+  .segs i { width: 12px; height: 10px; background: #1c1c22; } .segs i.on { background: var(--c); }
+  .segs.s i { width: 5px; }
+  .gauge .v { color: var(--c); }
+  .clock { background: #000; color: var(--y); padding: 0 14px; height: 100%; display: flex; align-items: center; }
+</style>
+</head>
+<body>
+<div class="win">
+  <div class="top">
+    <aside class="side">
+      <div class="brand"><div class="lights"><i></i><i></i><i></i></div>Herdr</div>
+      <div class="needs">
+        <h><span>◢ NEEDS YOU</span><b>1</b></h>
+        <div class="blk"><div class="bar"></div><div><div class="t">netrunner</div><div class="s">Arasaka Tower / 2 · t7</div></div></div>
+      </div>
+      <div class="sec">Spaces</div>
+      <div class="sp on"><i style="background:#ff003c">A</i>Arasaka Tower<em>feat/ice-breaker</em></div>
+      <div class="sp"><i style="background:#00b8c4">W</i>Watson Market<em>main</em></div>
+      <div class="sp"><i style="background:#c9b400">P</i>Pacifica<em>fix/braindance</em></div>
+      <div class="sp"><i style="background:#8a4dff">H</i>Heywood</div>
+      <div class="spacer"></div>
+      <div class="sec">Agents</div>
+      <div class="grp" style="color:var(--r)">Blocked 1</div>
+      <div class="ag"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>netrunner<small>· Approve deploy?</small><div class="st b"></div></div>
+      <div class="grp" style="color:var(--c)">Working 2</div>
+      <div class="ag on"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>ice-breaker<small>· Refactor auth</small><div class="st w"></div></div>
+      <div class="ag"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>fixer<small>· Write tests</small><div class="st w"></div></div>
+      <div class="grp" style="color:var(--dim)">Idle 1</div>
+      <div class="ag"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>ripperdoc<small>· Docs pass</small><div class="st"></div></div>
+      <div class="spacer"></div>
+      <div class="foot">⚙ Settings</div>
+    </aside>
+    <main class="work">
+      <div class="tabs">
+        <div class="tab on">ice-breaker</div>
+        <div class="tab">netrunner<span class="d"></span></div>
+        <div class="tab">fixer</div>
+        <div class="r"><span>Files</span><span>Changes</span></div>
+      </div>
+      <div class="panes">
+        <section class="pane focus">
+          <div class="ph">Claude Code <span>~/arasaka/ice-breaker</span></div>
+<div class="term"><span class="y">&gt;</span> refactor the session auth so tokens rotate every request
+
+<span class="g">●</span> Read <span class="c">src/auth/session.ts</span> <span class="m">(214 lines)</span>
+<span class="g">●</span> Update <span class="c">src/auth/session.ts</span>
+<span class="del"> 42 - const token = cache.get(user.id);</span><span class="add"> 42 + const token = await rotate(user.id, { ttl: 900 });</span><span class="add"> 43 + audit.log("token.rotate", user.id);</span>
+<span class="g">●</span> Bash <span class="m">npm test -- auth</span>
+  <span class="m">└</span> <span class="g">✓ 38 passed</span>  <span class="m">0 failed · 2.1s</span>
+
+<span class="g">●</span> Tokens now rotate on every request. The old cache
+  path is gone and every rotation is audited.
+
+<span class="pk">✻ Jacking in…</span> <span class="m">(1m 12s · ↓ 4.2k tokens)</span>
+
+<span class="m">────────────────────────────────────────────────────────</span>
+<span class="y">❯</span> <span class="cur"> </span></div>
+        </section>
+        <section class="pane">
+          <div class="ph">zsh <span>~/arasaka/ice-breaker</span></div>
+<div class="term"><span class="c">~/arasaka/ice-breaker</span> <span class="pk">feat/ice-breaker</span>
+<span class="y">$</span> hc ls
+
+<span class="m">ADDR  AGENT         STATUS</span>
+t3    ice-breaker   <span class="c">working</span>
+t7    netrunner     <span class="rd">blocked</span>
+t9    fixer         <span class="c">working</span>
+t4    ripperdoc     <span class="m">idle</span>
+
+<span class="y">$</span> git log --oneline -3
+<span class="y">a1f3c9e</span> rotate session tokens
+<span class="y">7be02d4</span> add audit trail
+<span class="y">3c9d118</span> breach protocol v2
+
+<span class="y">$</span> <span class="cur"> </span></div>
+        </section>
+      </div>
+    </main>
+  </div>
+  <footer class="status">
+    <div class="beam"></div>
+    <div class="cell net">◢ NET//ONLINE</div>
+    <div class="cell">LOCAL</div><div class="sep"></div>
+    <div class="cell">⎇ FEAT/ICE-BREAKER</div><div class="sep"></div>
+    <div class="cell">AGENTS 4 · ▲2</div>
+    <div class="cell blkd">⚠ 1 AWAITING</div>
+    <div class="spacer"></div>
+    <div class="gauge"><span class="lab">CTX</span><div class="segs"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="v">34% USED · 68K/200K</span></div>
+    <div class="spacer"></div>
+    <div class="gauge" style="margin-right:8px"><span class="lab">SESSION</span><div class="segs s"><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="v">41% · 01:10</span></div>
+    <div class="gauge" style="margin-right:8px"><span class="lab">WEEK</span><div class="segs s"><i class="on"></i><i class="on"></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div><span class="v">17% · SUN 01:00</span></div>
+    <div class="cell">// CMD</div>
+    <div class="clock">22:20</div>
+    <div style="width:6px;height:100%;background:var(--r)"></div>
+  </footer>
+</div>
+</body>
+</html>

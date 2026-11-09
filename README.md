@@ -3,6 +3,10 @@
 A Cyberpunk 2077 style setup for [Herdr](https://herdr.dev): neon theme, Night City
 background, see-through panes, angular frames, Rajdhani / Share Tech Mono fonts.
 
+![Herdr Cyberpunk](docs/screenshot.png)
+
+<sub>Mockup with demo data (`docs/mockup.html`).</sub>
+
 ## What's in it
 
 - `layouts/cyberpunk.json`: the layout (a clone of Herdr's `main`).
@@ -21,8 +25,8 @@ background, see-through panes, angular frames, Rajdhani / Share Tech Mono fonts.
 Needs Herdr, and `jq` for the status line.
 
 ```sh
-git clone https://github.com/RickardOtv/herdr-cyberpunk.git
-cd herdr-cyberpunk
+git clone https://github.com/RickardOtv/herdr-cyberpunk-theme.git
+cd herdr-cyberpunk-theme
 ./install.sh
 ```
 

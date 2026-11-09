@@ -1,6 +1,6 @@
 # Herdr Cyberpunk
 
-A Cyberpunk 2077 style setup for [Herdr](https://herdr.dev): neon theme, Night City
+A neon cyberpunk setup for [Herdr](https://herdr.dev): yellow/red/cyan theme, city skyline
 background, see-through panes, angular frames, Rajdhani / Share Tech Mono fonts.
 
 ![Herdr Cyberpunk](docs/screenshot.png)
@@ -11,7 +11,7 @@ background, see-through panes, angular frames, Rajdhani / Share Tech Mono fonts.
 
 - `layouts/cyberpunk.json`: the layout (a clone of Herdr's `main`).
 - `themes/cyberpunk.json`: black, yellow `#fcee0a`, red `#ff003c`, cyan `#00f0ff`.
-- `backgrounds/`: the skyline image and `night-city.py`, the script that generates it.
+- `backgrounds/`: the skyline image and `skyline.py`, the script that generates it.
 - `mods/cp-status`: yellow bottom bar. Shows agent counts, a context meter for the
   focused Claude session, SESSION (5h) and WEEK plan usage, and a clock.
 - `mods/cp-needs`: NEEDS YOU list at the top of the sidebar (blocked agents).
@@ -37,4 +37,6 @@ context or plan usage.
 ## Fonts
 
 Rajdhani and Share Tech Mono are under the SIL Open Font License
-(`mods/cp-status/fonts/OFL-Rajdhani.txt`).
+(`mods/cp-status/fonts/OFL-Rajdhani.txt`, `OFL-ShareTechMono.txt`).
+
+Fan-made and not affiliated with CD Projekt or Cyberpunk 2077.

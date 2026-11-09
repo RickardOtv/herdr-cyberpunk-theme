@@ -13,7 +13,7 @@ copy() { # $1 source, $2 destination
 copy layouts/cyberpunk.json "$H/layouts/cyberpunk.json"
 copy layouts/cyberpunk.svg "$H/layouts/cyberpunk.svg"
 copy themes/cyberpunk.json "$H/themes/cyberpunk.json"
-copy backgrounds/night-city-2.png "$H/backgrounds/night-city-2.png"
+copy backgrounds/skyline.png "$H/backgrounds/skyline.png"
 for m in mods/*/; do copy "${m%/}" "$H/${m%/}"; done
 
 # Claude Code status line: feeds plan usage and context to the Herdr status bar.

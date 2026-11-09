@@ -3,7 +3,7 @@ import { h_flex, v_flex } from "gpui-base";
 import { agents, terminals, spaces, theme, run } from "herdr";
 
 // "NEEDS YOU" list for the sidebar, after Night City's attention rail
-// (github.com/vib-z/herdr-layouts), drawn in Cyberpunk 2077 style. Lists
+// (github.com/vib-z/herdr-layouts), drawn in neon cyberpunk style. Lists
 // every blocked agent, sub-agents without a pane included, newest first.
 // The block grows with the list: it resizes itself (id "needs").
 const YELLOW = "#fcee0a";

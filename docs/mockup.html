@@ -12,7 +12,7 @@
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { width: 1600px; height: 1000px; overflow: hidden; background: #000; font-family: Rajdhani; color: var(--fg); }
   .win { position: relative; width: 100%; height: 100%; display: flex; flex-direction: column;
-    background: url(../backgrounds/night-city-2.png) center/cover; }
+    background: url(../backgrounds/skyline.png) center/cover; }
   .top { display: flex; flex: 1; min-height: 0; }
   /* Sidebar */
   .side { width: 290px; background: #0c090de6; border-right: 1px solid var(--r); display: flex; flex-direction: column; }
@@ -78,13 +78,13 @@
       <div class="brand"><div class="lights"><i></i><i></i><i></i></div>Herdr</div>
       <div class="needs">
         <h><span>◢ NEEDS YOU</span><b>1</b></h>
-        <div class="blk"><div class="bar"></div><div><div class="t">netrunner</div><div class="s">Arasaka Tower / 2 · t7</div></div></div>
+        <div class="blk"><div class="bar"></div><div><div class="t">netrunner</div><div class="s">Neon District / 2 · t7</div></div></div>
       </div>
       <div class="sec">Spaces</div>
-      <div class="sp on"><i style="background:#ff003c">A</i>Arasaka Tower<em>feat/ice-breaker</em></div>
-      <div class="sp"><i style="background:#00b8c4">W</i>Watson Market<em>main</em></div>
-      <div class="sp"><i style="background:#c9b400">P</i>Pacifica<em>fix/braindance</em></div>
-      <div class="sp"><i style="background:#8a4dff">H</i>Heywood</div>
+      <div class="sp on"><i style="background:#ff003c">N</i>Neon District<em>feat/ice-breaker</em></div>
+      <div class="sp"><i style="background:#00b8c4">M</i>Night Market<em>main</em></div>
+      <div class="sp"><i style="background:#c9b400">H</i>Harbor<em>fix/hologram</em></div>
+      <div class="sp"><i style="background:#8a4dff">U</i>Uptown</div>
       <div class="spacer"></div>
       <div class="sec">Agents</div>
       <div class="grp" style="color:var(--r)">Blocked 1</div>
@@ -93,7 +93,7 @@
       <div class="ag on"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>ice-breaker<small>· Refactor auth</small><div class="st w"></div></div>
       <div class="ag"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>fixer<small>· Write tests</small><div class="st w"></div></div>
       <div class="grp" style="color:var(--dim)">Idle 1</div>
-      <div class="ag"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>ripperdoc<small>· Docs pass</small><div class="st"></div></div>
+      <div class="ag"><span style="width:10px;height:10px;background:var(--r);transform:rotate(45deg);flex:none"></span>medic    <small>· Docs pass</small><div class="st"></div></div>
       <div class="spacer"></div>
       <div class="foot">⚙ Settings</div>
     </aside>
@@ -106,7 +106,7 @@
       </div>
       <div class="panes">
         <section class="pane focus">
-          <div class="ph">Claude Code <span>~/arasaka/ice-breaker</span></div>
+          <div class="ph">Claude Code <span>~/neon/ice-breaker</span></div>
 <div class="term"><span class="y">&gt;</span> refactor the session auth so tokens rotate every request
 
 <span class="g">●</span> Read <span class="c">src/auth/session.ts</span> <span class="m">(214 lines)</span>
@@ -124,15 +124,15 @@
 <span class="y">❯</span> <span class="cur"> </span></div>
         </section>
         <section class="pane">
-          <div class="ph">zsh <span>~/arasaka/ice-breaker</span></div>
-<div class="term"><span class="c">~/arasaka/ice-breaker</span> <span class="pk">feat/ice-breaker</span>
+          <div class="ph">zsh <span>~/neon/ice-breaker</span></div>
+<div class="term"><span class="c">~/neon/ice-breaker</span> <span class="pk">feat/ice-breaker</span>
 <span class="y">$</span> hc ls
 
 <span class="m">ADDR  AGENT         STATUS</span>
 t3    ice-breaker   <span class="c">working</span>
 t7    netrunner     <span class="rd">blocked</span>
 t9    fixer         <span class="c">working</span>
-t4    ripperdoc     <span class="m">idle</span>
+t4    medic         <span class="m">idle</span>
 
 <span class="y">$</span> git log --oneline -3
 <span class="y">a1f3c9e</span> rotate session tokens

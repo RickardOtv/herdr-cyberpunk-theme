@@ -191,7 +191,7 @@
     }
   ],
   "background": {
-    "image": "backgrounds/night-city-2.png",
+    "image": "backgrounds/skyline.png",
     "fit": "cover"
   },
   "terminal_padding": [

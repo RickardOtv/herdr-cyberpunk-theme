@@ -2,7 +2,7 @@ import { View, div } from "gpui-kit";
 import { h_flex } from "gpui-base";
 import { spaces, agents, focused, run, home, readTextFile } from "herdr";
 
-// Cyberpunk 2077 status bar: a yellow strip with black uppercase text,
+// Cyberpunk status bar: a yellow strip with black uppercase text,
 // a scan beam, agent counts, a context meter for the focused Claude session,
 // Claude plan usage and a clock.
 // Data comes from ~/.claude/statusline.sh: usage.json (plan limits) and

@@ -39,4 +39,4 @@ context or plan usage.
 Rajdhani and Share Tech Mono are under the SIL Open Font License
 (`mods/cp-status/fonts/OFL-Rajdhani.txt`, `OFL-ShareTechMono.txt`).
 
-Fan-made and not affiliated with CD Projekt or Cyberpunk 2077.
+Fan-made.

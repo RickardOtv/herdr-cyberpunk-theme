@@ -1,0 +1,4 @@
+*.d.ts
+jsconfig.json
+.DS_Store
+*.bak
